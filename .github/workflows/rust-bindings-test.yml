@@ -16,28 +16,52 @@ jobs:
         run: |
           cd bindings/rust
           cargo clean
-          cargo test --all --release --tests
+          cargo test -vv --all --release --tests
       - name: Build and Test (minimal preset)
         run: |
           cd bindings/rust
           cargo clean
-          cargo test --all --release --features="minimal-spec" --tests
+          cargo test -vv --all --release --features="minimal-spec" --tests
   test-rust-bindings-windows:
-    runs-on: windows-2019
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
         with:
           submodules: recursive
+      - uses: ilammy/msvc-dev-cmd@v1
       - name: Get latest version of stable rust
         run: |
           rustup update stable
-      - name: Build and Test (mainnet preset)
+      - name: test
         run: |
-          cd bindings/rust
-          cargo clean
-          cargo test --all --release --tests
-      - name: Build and Test (minimal preset)
-        run: |
-          cd bindings/rust
-          cargo clean
-          cargo test --all --release --features="minimal-spec" --tests
+          #cd src
+          #make blst
+
+          # *** bat ***
+          cd blst
+          ./build.bat
+          ls ./
+
+          #pwd
+          #ls ./
+          #ls ../blst
+
+          # *** build c_kzg_4844 with cl ***
+          cd ../src
+          cl /LD /I/../blst/bindings c_kzg_4844.c ../blst/blst.lib
+          ls ./
+          
+          #cd ../src
+          #make all
+          #ls ./
+
+          #- name: Build and Test (mainnet preset)
+          #  run: |
+          #    cd bindings/rust
+          #    cargo clean
+          #    cargo test -vv --all --release --tests
+          #- name: Build and Test (minimal preset)
+          #  run: |
+          #    cd bindings/rust
+          #    cargo clean
+          #    cargo test -vv --all --release --features="minimal-spec" --tests
