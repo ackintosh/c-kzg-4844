@@ -7,7 +7,6 @@ include!("bindings.rs");
 use libc::fopen;
 use std::ffi::CString;
 use std::mem::MaybeUninit;
-use std::os::unix::prelude::OsStrExt;
 use std::path::PathBuf;
 
 pub const BYTES_PER_G1_POINT: usize = 48;
@@ -82,7 +81,7 @@ impl KZGSettings {
     /// FIELD_ELEMENT_PER_BLOB g1 byte values
     /// 65 g2 byte values
     pub fn load_trusted_setup_file(file_path: PathBuf) -> Result<Self, Error> {
-        let file_path = CString::new(file_path.as_os_str().as_bytes()).map_err(|e| {
+        let file_path = CString::new(file_path.as_os_str().to_str().unwrap()).map_err(|e| {
             Error::InvalidTrustedSetup(format!("Invalid trusted setup file: {:?}", e))
         })?;
         let mut kzg_settings = MaybeUninit::<KZGSettings>::uninit();
