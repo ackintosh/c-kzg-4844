@@ -64,7 +64,7 @@ blst:
 
 .PHONY: test-ack
 test-ack:
-	@$(CC) -O -Wall -shared -I../blst/bindings -o aaa.dll c_kzg_4844.c 
+	@$(CC) -O -Wall -shared -DFIELD_ELEMENTS_PER_BLOB=4096 -I../blst/bindings -o aaa.dll c_kzg_4844.c 
 
 .PHONY: test
 test: test_c_kzg_4844
