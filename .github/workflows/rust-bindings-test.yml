@@ -50,10 +50,13 @@ jobs:
           # cd ../src
           # make test-ack
           # ls ./
-          
           cd ../src
-          make all FIELD_ELEMENTS_PER_BLOB=4096
-          ls ./
+          cl \DFIELD_ELEMENTS_PER_BLOB=4096 /LD /I/../blst/bindings c_kzg_4844.c
+          
+          # *** make all ***
+          #cd ../src
+          #make all FIELD_ELEMENTS_PER_BLOB=4096
+          #ls ./
 
           #- name: Build and Test (mainnet preset)
           #  run: |
