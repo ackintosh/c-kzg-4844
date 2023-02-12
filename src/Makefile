@@ -47,7 +47,7 @@ endif
 all: c_kzg_4844.o
 
 %.o: %.c
-	@$(CC) $(CFLAGS) -c $< -I ../blst/bindings
+	@$(CC) $(CFLAGS) -c $<
 
 test_c_kzg_4844: test_c_kzg_4844.c c_kzg_4844.c
 	@$(CC) $(CFLAGS) -o $@ $< $(BLST) 
@@ -64,7 +64,7 @@ blst:
 
 .PHONY: test-ack
 test-ack:
-	@$(CC) $(CFLAGS) -c c_kzg_4844.o -I ../blst/bindings
+	@$(CC) $(CFLAGS) -c c_kzg_4844.c -I../blst/bindings
 
 .PHONY: test
 test: test_c_kzg_4844
