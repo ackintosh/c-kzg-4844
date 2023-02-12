@@ -50,6 +50,7 @@ jobs:
           cd ../src
           make test-ack
           ls ./
+          lib ckzg.lib c_kzg_4844.o
           #cd ../src
           cl /DFIELD_ELEMENTS_PER_BLOB=4096 /c /O2 /I../blst/bindings c_kzg_4844.c ../blst/blst.lib
           #cl /DFIELD_ELEMENTS_PER_BLOB=4096 /LD /I../blst/bindings c_kzg_4844.c ../blst/blst.lib
