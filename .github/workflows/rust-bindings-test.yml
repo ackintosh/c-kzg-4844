@@ -67,7 +67,7 @@ jobs:
         run: |
           cd bindings/rust
           cargo clean
-          cargo test -vv --all --release --tests
+          cargo test --all --release --tests
           #- name: Build and Test (minimal preset)
           #  run: |
           #    cd bindings/rust
