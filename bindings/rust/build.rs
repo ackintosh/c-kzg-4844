@@ -30,11 +30,11 @@ fn main() {
     // )
     // .unwrap();
     //
-    // let field_elements_per_blob = if cfg!(feature = "minimal-spec") {
-    //     MINIMAL_FIELD_ELEMENTS_PER_BLOB
-    // } else {
-    //     MAINNET_FIELD_ELEMENTS_PER_BLOB
-    // };
+    let field_elements_per_blob = if cfg!(feature = "minimal-spec") {
+        MINIMAL_FIELD_ELEMENTS_PER_BLOB
+    } else {
+        MAINNET_FIELD_ELEMENTS_PER_BLOB
+    };
     //
     // eprintln!("Using FIELD_ELEMENTS_PER_BLOB={}", field_elements_per_blob);
     //
