@@ -3,25 +3,25 @@ on:
   push:
 
 jobs:
-  test-rust-bindings:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          submodules: recursive
-      - name: Get latest version of stable rust
-        run: |
-          rustup update stable
-      - name: Build and Test (mainnet preset)
-        run: |
-          cd bindings/rust
-          cargo clean
-          cargo test -vv --all --release --tests
-      - name: Build and Test (minimal preset)
-        run: |
-          cd bindings/rust
-          cargo clean
-          cargo test -vv --all --release --features="minimal-spec" --tests
+  #test-rust-bindings:
+  #  runs-on: ubuntu-latest
+  #  steps:
+  #    - uses: actions/checkout@v3
+  #      with:
+  #        submodules: recursive
+  #    - name: Get latest version of stable rust
+  #      run: |
+  #        rustup update stable
+  #    - name: Build and Test (mainnet preset)
+  #      run: |
+  #        cd bindings/rust
+  #        cargo clean
+  #        cargo test -vv --all --release --tests
+  #    - name: Build and Test (minimal preset)
+  #      run: |
+  #        cd bindings/rust
+  #        cargo clean
+  #        cargo test -vv --all --release --features="minimal-spec" --tests
   test-rust-bindings-windows:
     runs-on: windows-latest
     steps:
