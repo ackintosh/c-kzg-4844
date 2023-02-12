@@ -63,11 +63,11 @@ jobs:
           #make all FIELD_ELEMENTS_PER_BLOB=4096
           #ls ./
 
-          - name: Build and Test (mainnet preset)
-            run: |
-              cd bindings/rust
-              cargo clean
-              cargo test -vv --all --release --tests
+      - name: Build and Test (mainnet preset)
+        run: |
+          cd bindings/rust
+          cargo clean
+          cargo test -vv --all --release --tests
           #- name: Build and Test (minimal preset)
           #  run: |
           #    cd bindings/rust
