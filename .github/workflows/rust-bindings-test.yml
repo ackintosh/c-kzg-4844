@@ -48,7 +48,8 @@ jobs:
 
           # *** build c_kzg_4844 with cl ***
           cd ../src
-          cl /LD /I/../blst/bindings c_kzg_4844.c ../blst/blst.lib
+          make test-ack
+          #cl /LD /I/../blst/bindings c_kzg_4844.c ../blst/blst.lib
           ls ./
           
           #cd ../src
