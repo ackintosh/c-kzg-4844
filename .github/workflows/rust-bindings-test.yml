@@ -51,7 +51,7 @@ jobs:
           # make test-ack
           # ls ./
           cd ../src
-          cl \DFIELD_ELEMENTS_PER_BLOB=4096 /LD /I/../blst/bindings c_kzg_4844.c
+          cl /DFIELD_ELEMENTS_PER_BLOB=4096 /LD /I/../blst/bindings c_kzg_4844.c
           
           # *** make all ***
           #cd ../src
