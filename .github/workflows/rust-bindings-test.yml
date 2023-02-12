@@ -52,8 +52,10 @@ jobs:
           ls ./
           lib /out:ckzg.lib c_kzg_4844.o
           ls ./
+
+          # ******
           #cd ../src
-          cl /DFIELD_ELEMENTS_PER_BLOB=4096 /c /O2 /I../blst/bindings c_kzg_4844.c ../blst/blst.lib
+          #cl /DFIELD_ELEMENTS_PER_BLOB=4096 /c /O2 /I../blst/bindings c_kzg_4844.c ../blst/blst.lib
           #cl /DFIELD_ELEMENTS_PER_BLOB=4096 /LD /I../blst/bindings c_kzg_4844.c ../blst/blst.lib
           
           # *** make all ***
@@ -61,11 +63,11 @@ jobs:
           #make all FIELD_ELEMENTS_PER_BLOB=4096
           #ls ./
 
-          #- name: Build and Test (mainnet preset)
-          #  run: |
-          #    cd bindings/rust
-          #    cargo clean
-          #    cargo test -vv --all --release --tests
+          - name: Build and Test (mainnet preset)
+            run: |
+              cd bindings/rust
+              cargo clean
+              cargo test -vv --all --release --tests
           #- name: Build and Test (minimal preset)
           #  run: |
           #    cd bindings/rust

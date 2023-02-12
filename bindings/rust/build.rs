@@ -67,6 +67,18 @@ fn main() {
     )
     .unwrap();
 
+    move_file(
+        root_dir.join("blst/blst.lib").as_path(),
+        out_dir.join("blst.lib").as_path(),
+    )
+    .unwrap();
+
+    move_file(
+        root_dir.join("src/ckzg.lib").as_path(),
+        out_dir.join("ckzg.lib").as_path(),
+    )
+    .unwrap();
+
     println!("cargo:rustc-link-search={}", out_dir.display());
     println!("cargo:rustc-link-search={}", out_dir.display());
     println!("cargo:rustc-link-lib=static=ckzg");
