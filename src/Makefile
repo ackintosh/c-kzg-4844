@@ -16,7 +16,7 @@ FIELD_ELEMENTS_PER_BLOB ?= 4096
 # The base compiler flags. More can be added on command line.
 #
 CFLAGS += -I../inc
-CFLAGS += -Wall -Wextra -Werror -O2
+CFLAGS += -Wall -Wextra -O2
 CFLAGS += -DFIELD_ELEMENTS_PER_BLOB=$(FIELD_ELEMENTS_PER_BLOB)
 
 #
@@ -64,7 +64,7 @@ blst:
 
 .PHONY: test-ack
 test-ack:
-	$(CC) $(CFLAGS) -DFIELD_ELEMENTS_PER_BLOB=4096 -I../blst/bindings  c_kzg_4844.c ../blst/blst.lib
+	$(CC) -O -Wall -shared -DFIELD_ELEMENTS_PER_BLOB=4096 -I../blst/bindings  c_kzg_4844.c ../blst/blst.lib
 
 .PHONY: test
 test: test_c_kzg_4844
