@@ -15,6 +15,7 @@ jobs:
       - name: aaa
         run: |
           cargo install cross
+          cd bindings/rust
           cross build --target aarch64-unknown-linux-gnu --profile "release"
 
       #- name: Build and Test (mainnet preset)
