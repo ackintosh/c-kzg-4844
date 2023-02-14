@@ -54,7 +54,7 @@ jobs:
           #ls ./
 
           cd ../src
-          cl /c /EHsc /I../blst/bindings /Fockzg.obj c_kzg_4844.c
+          cl /c /EHsc /I../blst/bindings /DFIELD_ELEMENTS_PER_BLOB=4096 /Fockzg.obj c_kzg_4844.c
           ls ./
           lib /OUT:ckzg.lib ckzg.obj
           ls ./
