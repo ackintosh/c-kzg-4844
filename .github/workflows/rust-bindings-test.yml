@@ -47,17 +47,19 @@ jobs:
           #ls ../blst
 
           # *** build c_kzg_4844 ***
-          #cd ../src
-          #make test-ack
-          #ls ./
-          #lib /out:ckzg.lib c_kzg_4844.o
-          #ls ./
-
           cd ../src
-          cl /c /EHsc /I../blst/bindings /DFIELD_ELEMENTS_PER_BLOB=4096 /Fockzg.obj c_kzg_4844.c
+          make test-ack
           ls ./
-          lib /OUT:ckzg.lib ckzg.obj
+          ar rcs c_kzg_4844.a c_kzg_4844.o
+          dlltool -l c_kzg_4844.lib 
           ls ./
+
+          # *** chat
+          #cd ../src
+          #cl /c /EHsc /I../blst/bindings /DFIELD_ELEMENTS_PER_BLOB=4096 /Fockzg.obj c_kzg_4844.c
+          #ls ./
+          #lib /OUT:ckzg.lib ckzg.obj
+          #ls ./
 
           # ******
           #cd ../src
