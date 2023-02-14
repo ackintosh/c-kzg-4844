@@ -48,7 +48,7 @@ jobs:
 
           # *** build c_kzg_4844 ***
           cd ../src
-          make test-ack
+          make test-ack FIELD_ELEMENTS_PER_BLOB=4096
           ls ./
           ar rcs c_kzg_4844.a c_kzg_4844.o
           dlltool -l ckzg.lib 
