@@ -52,6 +52,9 @@ jobs:
           ls ./
           ar rcs c_kzg_4844.a c_kzg_4844.o
           dlltool -l ckzg.lib 
+          echo 'dumpbin -->'
+          dumpbin /symbols ckzg.lib
+          echo '<-- dumpbin'
           ls ./
 
           # *** chat
