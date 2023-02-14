@@ -51,7 +51,7 @@ jobs:
           make test-ack
           ls ./
           ar rcs c_kzg_4844.a c_kzg_4844.o
-          dlltool -l c_kzg_4844.lib 
+          dlltool -l ckzg.lib 
           ls ./
 
           # *** chat
