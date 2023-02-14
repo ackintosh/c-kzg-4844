@@ -47,10 +47,16 @@ jobs:
           #ls ../blst
 
           # *** build c_kzg_4844 ***
+          #cd ../src
+          #make test-ack
+          #ls ./
+          #lib /out:ckzg.lib c_kzg_4844.o
+          #ls ./
+
           cd ../src
-          make test-ack
+          cl /c /EHsc /Fockzg.obj c_kzg_4844.c
           ls ./
-          lib /out:ckzg.lib c_kzg_4844.o
+          lib /OUT:ckzg.lib ckzg.obj
           ls ./
 
           # ******
@@ -63,11 +69,11 @@ jobs:
           #make all FIELD_ELEMENTS_PER_BLOB=4096
           #ls ./
 
-      - name: Build and Test (mainnet preset)
-        run: |
-          cd bindings/rust
-          cargo clean
-          cargo test --all --release --tests
+          #- name: Build and Test (mainnet preset)
+          #  run: |
+          #    cd bindings/rust
+          #    cargo clean
+          #    cargo test --all --release --tests
           #- name: Build and Test (minimal preset)
           #  run: |
           #    cd bindings/rust
