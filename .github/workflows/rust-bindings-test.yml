@@ -47,27 +47,24 @@ jobs:
           #ls ../blst
 
           # *** build c_kzg_4844 ***
-          cd ../src
-          make test-ack FIELD_ELEMENTS_PER_BLOB=4096
-          ls ./
-          # ar rcs c_kzg_4844.a c_kzg_4844.o
-          #dlltool -l ckzg.lib c_kzg_4844.a
-          dlltool -z ckzg.def --export-all-symbol --no-default-excludes c_kzg_4844.o
-          echo 'cat ckzg.def'
-          cat ckzg.def
-          #lib /def:ckzg.def /out:ckzg.lib
-          dlltool -d ckzg.def -l ckzg.lib
-          echo 'dumpbin -->'
-          dumpbin /symbols ckzg.lib
-          echo '<-- dumpbin'
-          ls ./
+          #cd ../src
+          #make test-ack FIELD_ELEMENTS_PER_BLOB=4096
+          #ls ./
+          #dlltool -z ckzg.def --export-all-symbol c_kzg_4844.o
+          #echo 'cat ckzg.def'
+          #cat ckzg.def
+          #dlltool -d ckzg.def -l ckzg.lib
+          #echo 'dumpbin -->'
+          #dumpbin /symbols ckzg.lib
+          #echo '<-- dumpbin'
+          #ls ./
 
           # *** chat
-          #cd ../src
-          #cl /c /EHsc /I../blst/bindings /DFIELD_ELEMENTS_PER_BLOB=4096 /Fockzg.obj c_kzg_4844.c
-          #ls ./
-          #lib /OUT:ckzg.lib ckzg.obj
-          #ls ./
+          cd ../src
+          cl /nologo /c /EHsc /MT /I../blst/bindings /DFIELD_ELEMENTS_PER_BLOB=4096 /Fockzg.obj c_kzg_4844.c
+          ls ./
+          lib /OUT:ckzg.lib ckzg.obj
+          ls ./
 
           # ******
           #cd ../src
