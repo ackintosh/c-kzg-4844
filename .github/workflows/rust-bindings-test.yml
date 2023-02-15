@@ -51,7 +51,7 @@ jobs:
           make test-ack FIELD_ELEMENTS_PER_BLOB=4096
           ls ./
           ar rcs c_kzg_4844.a c_kzg_4844.o
-          dlltool --export-all-symbols -l ckzg.lib 
+          dlltool -l ckzg.lib c_kzg_4844.a
           echo 'dumpbin -->'
           dumpbin /symbols ckzg.lib
           echo '<-- dumpbin'
