@@ -53,7 +53,10 @@ jobs:
           # ar rcs c_kzg_4844.a c_kzg_4844.o
           #dlltool -l ckzg.lib c_kzg_4844.a
           dlltool -z ckzg.def --export-all-symbol c_kzg_4844.o
-          lib /def:ckzg.def /out:ckzg.lib
+          echo 'cat ckzg.def'
+          cat ckzg.def
+          #lib /def:ckzg.def /out:ckzg.lib
+          dlltool -d ckzg.def -l ckzg.lib
           echo 'dumpbin -->'
           dumpbin /symbols ckzg.lib
           echo '<-- dumpbin'
